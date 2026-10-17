@@ -16,4 +16,5 @@ class Item {
 
         this.stock = this.stock - amount;
     }
+
 }

@@ -53,11 +53,32 @@ class Vending {
             item.restock(amount);
         }
     }
+    void restockItem(String name, int amount, double price) {
+        if (amount <= 0) {
+            return;
+        }
+        if (Stock.containsKey(name)) {
+            Item item = Stock.get(name);
+            item.restock(amount);
+        } else {
+            Stock.put(name, new Item(price, amount));
+        }
+    }
     int getItemStock(String name){
         Item item = Stock.get(name);
         return item.stock;
     }
 
+    boolean hasItem(String name) {
+        return Stock.containsKey(name);
+    }
+void renameItem(String oldName, String newName) {
+        if (Stock.containsKey(oldName)
+            && !Stock.containsKey(newName)) {
+            Item item = Stock.remove(oldName);
+            Stock.put(newName, item);
+        }
+    }
 
 }
 
