@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VendorTest {
 
@@ -58,6 +59,14 @@ public class VendorTest {
             vendors[i].printInventory();
         }
     }
+    @Test // Removing discontinued items
+    void testRemoveItem() {
+        Vending vendor = new Vending(10, 5);
 
+        vendor.removeItem("Candy");
+
+        assertFalse(vendor.hasItem("Candy"));
+        assertTrue(vendor.hasItem("Gum"));
+    }
 
 }

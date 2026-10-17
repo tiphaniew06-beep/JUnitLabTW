@@ -87,6 +87,10 @@ void renameItem(String oldName, String newName) {
         }
     }
 
+    void removeItem(String name) {
+        Stock.remove(name);
+    }
+
 }
 
 class Examples {
