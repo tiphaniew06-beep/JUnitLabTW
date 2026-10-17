@@ -91,6 +91,12 @@ void renameItem(String oldName, String newName) {
         Stock.remove(name);
     }
 
+    int getPurchaseCount(String name) {
+        Item item = Stock.get(name);
+        return item == null ? 0 : item.purchaseCount;
+    }
+
+
 }
 
 class Examples {
