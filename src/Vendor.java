@@ -4,7 +4,7 @@ import java.util.HashMap;
  * well as the current balance of money that has been deposited into the machine.
  */
 class Vending {
-    private static HashMap<String, Item> Stock = new HashMap<String,Item>();
+    private HashMap<String, Item> Stock = new HashMap<>();
     private double balance;
 
     Vending(int numCandy, int numGum) {
@@ -77,6 +77,13 @@ void renameItem(String oldName, String newName) {
             && !Stock.containsKey(newName)) {
             Item item = Stock.remove(oldName);
             Stock.put(newName, item);
+        }
+    }
+
+    void printInventory() {
+        for (String name : Stock.keySet()) {
+            Item item = Stock.get(name);
+            System.out.println(name + " - Price: $" + item.price + " - Stock: " + item.stock);
         }
     }
 

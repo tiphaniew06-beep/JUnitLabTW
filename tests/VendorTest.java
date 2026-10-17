@@ -44,4 +44,20 @@ public class VendorTest {
              assertFalse(vendor.hasItem("Candy"));
     }
 
+    @Test // Managing vendors
+    void testFiveVendors() {
+        Vending[] vendors = new Vending[5];
+
+        for (int i = 0; i < 5; i++) {
+            vendors[i] = new Vending(10 + i, 5 + i);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            assertEquals(10 + i, vendors[i].getItemStock("Candy"));
+            assertEquals(5 + i, vendors[i].getItemStock("Gum"));
+            vendors[i].printInventory();
+        }
+    }
+
+
 }
