@@ -91,4 +91,26 @@ public class VendorTest {
         assertEquals("A sweet treat",
                 vendor.getItemDescription("Candy"));
     }
+
+    @Test // Applying discounts
+    void testItemDiscount() {
+        Vending vendor = new Vending(10, 5);
+
+        vendor.applyDiscount("Candy", 20);
+
+        assertEquals(1.00, vendor.getItemPrice("Candy"), 0.001);
+    }
+
+    @Test // Category of disc
+    void testCategoryDiscount() {
+        Vending vendor = new Vending(10, 5);
+
+        vendor.setItemCategory("Candy", "Snacks");
+        vendor.setItemCategory("Gum", "Snacks");
+
+        vendor.applyCategoryDiscount("Snacks", 20);
+
+        assertEquals(1.00, vendor.getItemPrice("Candy"), 0.001);
+        assertEquals(0.40, vendor.getItemPrice("Gum"), 0.001);
+    }
 }

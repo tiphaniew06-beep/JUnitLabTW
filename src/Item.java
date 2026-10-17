@@ -4,6 +4,7 @@ class Item {
 
     int purchaseCount = 0;
     String description = "";
+    String category = "";
 
     Item(double price, int numPieces) {
         this.price = price;

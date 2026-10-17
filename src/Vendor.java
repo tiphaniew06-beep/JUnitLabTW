@@ -109,6 +109,34 @@ void renameItem(String oldName, String newName) {
         return "Item not found";
     }
 
+    void setItemCategory(String name, String category) {
+        if (Stock.containsKey(name)) {
+            Stock.get(name).category = category;
+        }
+    }
+
+    void applyDiscount(String name, double percent) {
+        if (Stock.containsKey(name) && percent >= 0 && percent <= 100) {
+            Item item = Stock.get(name);
+            item.price = item.price * (1 - percent / 100);
+        }
+    }
+
+    void applyCategoryDiscount(String category, double percent) {
+        if (percent < 0 || percent > 100) {
+            return;
+        }
+
+        for (Item item : Stock.values()) {
+            if (category.equals(item.category)) {
+                item.price = item.price * (1 - percent / 100);
+            }
+        }
+    }
+
+    double getItemPrice(String name) {
+        return Stock.get(name).price;
+    }
 
 }
 
