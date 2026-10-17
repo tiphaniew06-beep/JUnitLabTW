@@ -96,6 +96,19 @@ void renameItem(String oldName, String newName) {
         return item == null ? 0 : item.purchaseCount;
     }
 
+    void setItemDescription(String name, String description) {
+        if (Stock.containsKey(name)) {
+            Stock.get(name).description = description;
+        }
+    }
+
+    String getItemDescription(String name) {
+        if (Stock.containsKey(name)) {
+            return Stock.get(name).description;
+        }
+        return "Item not found";
+    }
+
 
 }
 

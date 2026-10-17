@@ -81,4 +81,14 @@ public class VendorTest {
         assertEquals(3, vendor.getPurchaseCount("Candy"));
         assertEquals(7, vendor.getItemStock("Candy"));
     }
+
+    @Test // Viewing Items desc
+    void testItemDescription() {
+        Vending vendor = new Vending(10, 5);
+
+        vendor.setItemDescription("Candy", "A sweet treat");
+
+        assertEquals("A sweet treat",
+                vendor.getItemDescription("Candy"));
+    }
 }
