@@ -5,6 +5,7 @@ class Item {
     int purchaseCount = 0;
     String description = "";
     String category = "";
+    boolean bestseller = false;
 
     Item(double price, int numPieces) {
         this.price = price;

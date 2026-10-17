@@ -137,6 +137,16 @@ void renameItem(String oldName, String newName) {
     double getItemPrice(String name) {
         return Stock.get(name).price;
     }
+    void markBestseller(String name) {
+        if (Stock.containsKey(name)) {
+            Stock.get(name).bestseller = true;
+        }
+    }
+
+    boolean isBestseller(String name) {
+        return Stock.containsKey(name) && Stock.get(name).bestseller;
+    }
+
 
 }
 
